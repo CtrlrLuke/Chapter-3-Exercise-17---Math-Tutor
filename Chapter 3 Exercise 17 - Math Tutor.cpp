@@ -1,15 +1,17 @@
 // ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-// This program will create a random math problem, then ask the user to solve it, once the user enters, the program will either say correct or inccorect
-// If incorrect the program will output correct answer. 
+// 
+
 
 #include <iostream>
 #include <random>  // For modern random number generation
 
 using namespace std;
 
-// This program generates a random math problem, asks the user to solve it, and provides feedback.
-
 int main() {
+    
+    // This program will create a random math problem, then ask the user to solve it, once the user enters, the program will either say correct or inccorect
+    // If incorrect the program will output correct answer.  
+
     // Constants for range of numbers
     const int MIN = 100;
     const int MAX = 999;
