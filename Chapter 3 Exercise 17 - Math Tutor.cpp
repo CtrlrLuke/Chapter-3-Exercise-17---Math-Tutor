@@ -3,19 +3,27 @@
 // If incorrect the program will output correct answer. 
 
 #include <iostream>
-#include <cstdlib>  // For rand() and srand()
-#include <ctime>    // For time()
+#include <random>  // For modern random number generation
+
 using namespace std;
 
+// This program generates a random math problem, asks the user to solve it, and provides feedback.
+
 int main() {
-    // Seed the random number generator
-    srand(time(0));
+    // Constants for range of numbers
+    const int MIN = 100;
+    const int MAX = 999;
+
+    // Random number engine
+    random_device engine;
+    uniform_int_distribution<int> dist(MIN, MAX);
 
     // Generate two random numbers
-    int num1 = rand() % 900 + 100;
-    int num2 = rand() % 900 + 25;
+    int num1 = dist(engine);
+    int num2 = dist(engine);
 
-    int userAnswer, correctAnswer;
+    int userAnswer;
+    int correctAnswer = num1 + num2;
 
     // Display the math problem
     cout << "Solve the following addition problem:\n\n";
@@ -27,17 +35,12 @@ int main() {
     cout << "Enter your answer: ";
     cin >> userAnswer;
 
-    // Calculate the correct answer
-    correctAnswer = num1 + num2;
-
     // Check and display results
     if (userAnswer == correctAnswer) {
         cout << "You are correct! Good Job!" << endl;
     }
     else {
-        cout << "Your answer is not correct." << endl;
-        cout << "The correct answer is: " << correctAnswer << endl;
+        cout << "Your answer is not correct. The correct answer is: " << correctAnswer << endl;
     }
-
     return 0;
 }
